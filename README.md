@@ -15,7 +15,7 @@
 
 <div align="center">
 
-**[<a href="https://arxiv.org/abs/2310.01728">Paper Page</a>]**
+**[<a href="https://arxiv.org/pdf/2310.01728v2.pdf">Paper Page</a>]**
 **[<a href="https://mp.weixin.qq.com/s/FSxUdvPI713J2LiHnNaFCw">中文解读1</a>]**
 **[<a href="https://mp.weixin.qq.com/s/nUiQGnHOkWznoBPqM0KHXg">中文解读2</a>]**
 
