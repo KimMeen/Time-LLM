@@ -42,7 +42,7 @@
 }
 ```
 
-## Introdcution
+## Introduction
 Time-LLM is a reprogramming framework to repurpose LLMs for general time series forecasting with the backbone language models kept intact.
 Notably, we show that time series analysis (e.g., forecasting) can be cast as yet another "language task" that can be effectively tackled by an off-the-shelf LLM.
 
