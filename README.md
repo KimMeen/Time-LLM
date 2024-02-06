@@ -101,12 +101,12 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 
 
 ## Further Reading
-[**Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook**](https://arxiv.org/abs/2310.10196)  
+1, [**Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook**](https://arxiv.org/abs/2310.10196), in *arXiv* 2023.
 [\[GitHub Repo\]](https://github.com/qingsongedu/Awesome-TimeSeries-SpatioTemporal-LM-LLM)
 
 **Authors**: Ming Jin, Qingsong Wen*, Yuxuan Liang, Chaoli Zhang, Siqiao Xue, Xue Wang, James Zhang, Yi Wang, Haifeng Chen, Xiaoli Li (IEEE Fellow), Shirui Pan*, Vincent S. Tseng (IEEE Fellow), Yu Zheng (IEEE Fellow), Lei Chen (IEEE Fellow), Hui Xiong (IEEE Fellow)
 
-🌟 If you find this resource helpful, please consider to cite it in your research:
+🌟 If you find this paper helpful, please consider to cite it in your research:
 
 ```
 @article{jin2023lm4ts,
@@ -114,6 +114,21 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
   author={Ming Jin and Qingsong Wen and Yuxuan Liang and Chaoli Zhang and Siqiao Xue and Xue Wang and James Zhang and Yi Wang and Haifeng Chen and Xiaoli Li and Shirui Pan and Vincent S. Tseng and Yu Zheng and Lei Chen and Hui Xiong},
   journal={arXiv preprint arXiv:2310.10196},
   year={2023}
+}
+```
+
+2, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *arXiv* 2024.
+
+**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
+
+🌟 If you find this paper helpful, please consider to cite it in your research:
+
+```
+@article{jin2024position,
+   title={Position Paper: What Can Large Language Models Tell Us about Time Series Analysis}, 
+   author={Ming Jin and Yifan Zhang and Wei Chen and Kexin Zhang and Yuxuan Liang and Bin Yang and Jindong Wang and Shirui Pan and Qingsong Wen},
+  journal={arXiv preprint arXiv:2402.02713},
+  year={2024}
 }
 ```
 
