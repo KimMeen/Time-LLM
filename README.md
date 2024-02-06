@@ -35,9 +35,9 @@
 
 ```
 @inproceedings{jin2023time,
-  title={Time-llm: Time series forecasting by reprogramming large language models},
+  title={{Time-LLM}: Time series forecasting by reprogramming large language models},
   author={Jin, Ming and Wang, Shiyu and Ma, Lintao and Chu, Zhixuan and Zhang, James Y and Shi, Xiaoming and Chen, Pin-Yu and Liang, Yuxuan and Li, Yuan-Fang and Pan, Shirui and others},
-  booktitle={International Conference on Learning Representations},
+  booktitle={International Conference on Learning Representations (ICLR)},
   year={2024}
 }
 ```
