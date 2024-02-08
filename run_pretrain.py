@@ -4,11 +4,10 @@ from accelerate import Accelerator, DeepSpeedPlugin
 from accelerate import DistributedDataParallelKwargs
 from torch import nn, optim
 from torch.optim import lr_scheduler
-from tqdm import tqdm
 
+from data_provider_pretrain.data_factory import data_provider
 from models import Autoformer, DLinear, TimeLLM
 
-from data_provider.data_factory import data_provider
 import time
 import random
 import numpy as np
@@ -37,9 +36,11 @@ parser.add_argument('--model', type=str, required=True, default='Autoformer',
 parser.add_argument('--seed', type=int, default=2021, help='random seed')
 
 # data loader
+parser.add_argument('--data_pretrain', type=str, required=True, default='ETTm1', help='dataset type')
 parser.add_argument('--data', type=str, required=True, default='ETTm1', help='dataset type')
 parser.add_argument('--root_path', type=str, default='./dataset', help='root path of the data file')
 parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
+parser.add_argument('--data_path_pretrain', type=str, default='ETTh1.csv', help='data file')
 parser.add_argument('--features', type=str, default='M',
                     help='forecasting task, options:[M, S, MS]; '
                          'M:multivariate predict multivariate, S: univariate predict univariate, '
@@ -73,10 +74,10 @@ parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 parser.add_argument('--embed', type=str, default='timeF',
                     help='time features encoding, options:[timeF, fixed, learned]')
 parser.add_argument('--activation', type=str, default='gelu', help='activation')
-parser.add_argument('--output_attention', action='store_true', help='whether to output attention in encoder')
+parser.add_argument('--output_attention', action='store_true', help='whether to output attention in ecoder')
 parser.add_argument('--patch_len', type=int, default=16, help='patch length')
 parser.add_argument('--stride', type=int, default=8, help='stride')
-parser.add_argument('--prompt_domain', type=int, default=0, help='')
+parser.add_argument('--prompt_domain', type=int, default=0, help='stride')
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
@@ -85,7 +86,7 @@ parser.add_argument('--train_epochs', type=int, default=10, help='train epochs')
 parser.add_argument('--align_epochs', type=int, default=10, help='alignment epochs')
 parser.add_argument('--batch_size', type=int, default=32, help='batch size of train input data')
 parser.add_argument('--eval_batch_size', type=int, default=8, help='batch size of model evaluation')
-parser.add_argument('--patience', type=int, default=10, help='early stopping patience')
+parser.add_argument('--patience', type=int, default=5, help='early stopping patience')
 parser.add_argument('--learning_rate', type=float, default=0.0001, help='optimizer learning rate')
 parser.add_argument('--des', type=str, default='test', help='exp description')
 parser.add_argument('--loss', type=str, default='MSE', help='loss function')
@@ -120,9 +121,9 @@ for ii in range(args.itr):
         args.embed,
         args.des, ii)
 
-    train_data, train_loader = data_provider(args, 'train')
-    vali_data, vali_loader = data_provider(args, 'val')
-    test_data, test_loader = data_provider(args, 'test')
+    train_data, train_loader = data_provider(args, args.data_pretrain, args.data_path_pretrain, True, 'train')
+    vali_data, vali_loader = data_provider(args, args.data_pretrain, args.data_path_pretrain, True, 'val')
+    test_data, test_loader = data_provider(args, args.data, args.data_path, False, 'test')
 
     if args.model == 'Autoformer':
         model = Autoformer.Model(args).float()
@@ -173,7 +174,7 @@ for ii in range(args.itr):
 
         model.train()
         epoch_time = time.time()
-        for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in tqdm(enumerate(train_loader)):
+        for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(train_loader):
             iter_count += 1
             model_optim.zero_grad()
 
