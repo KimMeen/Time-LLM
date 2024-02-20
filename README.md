@@ -38,7 +38,7 @@
 ```
 @inproceedings{jin2023time,
   title={{Time-LLM}: Time series forecasting by reprogramming large language models},
-  author={Jin, Ming and Wang, Shiyu and Ma, Lintao and Chu, Zhixuan and Zhang, James Y and Shi, Xiaoming and Chen, Pin-Yu and Liang, Yuxuan and Li, Yuan-Fang and Pan, Shirui and others},
+  author={Jin, Ming and Wang, Shiyu and Ma, Lintao and Chu, Zhixuan and Zhang, James Y and Shi, Xiaoming and Chen, Pin-Yu and Liang, Yuxuan and Li, Yuan-Fang and Pan, Shirui and Wen, Qingsong},
   booktitle={International Conference on Learning Representations (ICLR)},
   year={2024}
 }
@@ -110,7 +110,7 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 
 🌟 If you find this paper helpful, please consider to cite it in your research:
 
-```
+```bibtex
 @article{jin2023lm4ts,
   title={Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook}, 
   author={Ming Jin and Qingsong Wen and Yuxuan Liang and Chaoli Zhang and Siqiao Xue and Xue Wang and James Zhang and Yi Wang and Haifeng Chen and Xiaoli Li and Shirui Pan and Vincent S. Tseng and Yu Zheng and Lei Chen and Hui Xiong},
@@ -125,7 +125,7 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 
 🌟 If you find this paper helpful, please consider to cite it in your research:
 
-```
+```bibtex
 @article{jin2024position,
    title={Position Paper: What Can Large Language Models Tell Us about Time Series Analysis}, 
    author={Ming Jin and Yifan Zhang and Wei Chen and Kexin Zhang and Yuxuan Liang and Bin Yang and Jindong Wang and Shirui Pan and Qingsong Wen},
@@ -133,6 +133,21 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
   year={2024}
 }
 ```
+3, [**Transformers in Time Series: A Survey**](https://arxiv.org/abs/2202.07125), IJCAI'23 Survey Track
+
+**Authors**: [Qingsong Wen](https://sites.google.com/site/qingsongwen8/), Tian Zhou, Chaoli Zhang, Weiqi Chen, Ziqing Ma, Junchi Yan, Liang Sun
+
+🌟 If you find this paper helpful, please consider to cite it in your research:
+
+```bibtex
+@inproceedings{wen2023transformers,
+  title={Transformers in time series: A survey},
+  author={Wen, Qingsong and Zhou, Tian and Zhang, Chaoli and Chen, Weiqi and Ma, Ziqing and Yan, Junchi and Sun, Liang},
+  booktitle={International Joint Conference on Artificial Intelligence(IJCAI)},
+  year={2023}
+}
+```
+
 
 ## Acknowledgement
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library) and [GPT4TS](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
