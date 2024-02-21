@@ -20,6 +20,8 @@
 **[<a href="https://mp.weixin.qq.com/s/FSxUdvPI713J2LiHnNaFCw">中文解读1</a>]**
 **[<a href="https://mp.weixin.qq.com/s/nUiQGnHOkWznoBPqM0KHXg">中文解读2</a>]**
 **[<a href="https://zhuanlan.zhihu.com/p/676256783">中文解读3</a>]**
+**[<a href="https://mp.weixin.qq.com/s/ZnR33epXCB7N5Y_kO0YJ_w">中文解读4</a>]**
+
 
 </div>
 
@@ -133,9 +135,10 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
   year={2024}
 }
 ```
-3, [**Transformers in Time Series: A Survey**](https://arxiv.org/abs/2202.07125), IJCAI'23 Survey Track
+3, [**Transformers in Time Series: A Survey**](https://arxiv.org/abs/2202.07125), in IJCAI 2023.
+[\[GitHub Repo\]](https://github.com/qingsongedu/time-series-transformers-review)
 
-**Authors**: [Qingsong Wen](https://sites.google.com/site/qingsongwen8/), Tian Zhou, Chaoli Zhang, Weiqi Chen, Ziqing Ma, Junchi Yan, Liang Sun
+**Authors**: Qingsong Wen, Tian Zhou, Chaoli Zhang, Weiqi Chen, Ziqing Ma, Junchi Yan, Liang Sun
 
 🌟 If you find this paper helpful, please consider to cite it in your research:
 
