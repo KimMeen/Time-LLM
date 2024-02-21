@@ -110,7 +110,6 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 
 **Authors**: Ming Jin, Qingsong Wen*, Yuxuan Liang, Chaoli Zhang, Siqiao Xue, Xue Wang, James Zhang, Yi Wang, Haifeng Chen, Xiaoli Li (IEEE Fellow), Shirui Pan*, Vincent S. Tseng (IEEE Fellow), Yu Zheng (IEEE Fellow), Lei Chen (IEEE Fellow), Hui Xiong (IEEE Fellow)
 
-🌟 If you find this paper helpful, please consider to cite it in your research:
 
 ```bibtex
 @article{jin2023lm4ts,
@@ -125,7 +124,6 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 
 **Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
 
-🌟 If you find this paper helpful, please consider to cite it in your research:
 
 ```bibtex
 @article{jin2024position,
@@ -139,8 +137,6 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 [\[GitHub Repo\]](https://github.com/qingsongedu/time-series-transformers-review)
 
 **Authors**: Qingsong Wen, Tian Zhou, Chaoli Zhang, Weiqi Chen, Ziqing Ma, Junchi Yan, Liang Sun
-
-🌟 If you find this paper helpful, please consider to cite it in your research:
 
 ```bibtex
 @inproceedings{wen2023transformers,
