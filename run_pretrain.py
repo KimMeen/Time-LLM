@@ -77,7 +77,9 @@ parser.add_argument('--activation', type=str, default='gelu', help='activation')
 parser.add_argument('--output_attention', action='store_true', help='whether to output attention in ecoder')
 parser.add_argument('--patch_len', type=int, default=16, help='patch length')
 parser.add_argument('--stride', type=int, default=8, help='stride')
-parser.add_argument('--prompt_domain', type=int, default=0, help='stride')
+parser.add_argument('--prompt_domain', type=int, default=0, help='')
+parser.add_argument('--llm_model', type=str, default='LLAMA', help='LLM model')
+parser.add_argument('--llm_dim', type=int, default='4096', help='LLM model dimension')
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
