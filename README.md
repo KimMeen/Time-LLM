@@ -101,7 +101,7 @@ bash ./scripts/TimeLLM_ETTm2.sh
 
 ## Detailed usage
 
-Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed description of each hyperparameter.
+Please refer to ```run_main.py```, ```run_m4.py``` and ```run_pretrain.py``` for the detailed description of each hyperparameter.
 
 
 ## Further Reading
@@ -147,6 +147,19 @@ Please refer to ```run_main.py``` and ```run_m4.py``` for the detailed descripti
 }
 ```
 
+4, [**TimeMixer: Decomposable Multiscale Mixing for Time Series Forecasting**](https://openreview.net/pdf?id=7oLshfEIC2), in ICLR 2024.
+[\[GitHub Repo\]](https://github.com/kwuking/TimeMixer)
+
+**Authors**: Shiyu Wang, Haixu Wu, Xiaoming Shi, Tengge Hu, Huakun Luo, Lintao Ma, James Y. Zhang, Jun Zhou 
+
+```bibtex
+@inproceedings{wang2023timemixer,
+  title={TimeMixer: Decomposable Multiscale Mixing for Time Series Forecasting},
+  author={Wang, Shiyu and Wu, Haixu and Shi, Xiaoming and Hu, Tengge and Luo, Huakun and Ma, Lintao and Zhang, James Y and ZHOU, JUN},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2024}
+}
+```
 
 ## Acknowledgement
-Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library) and [GPT4TS](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
+Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library) and [OFA (GPT4TS)](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
