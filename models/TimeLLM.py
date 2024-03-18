@@ -134,7 +134,7 @@ class Model(nn.Module):
                     'google-bert/bert-base-uncased',
                     trust_remote_code=True,
                     local_files_only=False,
-                    config=self.gpt2_config,
+                    config=self.bert_config,
                 )
 
             try:
