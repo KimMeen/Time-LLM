@@ -18,7 +18,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --data_path traffic.csv \
   --model_id traffic_512_96 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len 512 \
   --label_len 48 \
@@ -42,7 +42,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --data_path traffic.csv \
   --model_id traffic_512_96 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len 512 \
   --label_len 48 \
@@ -66,7 +66,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --data_path traffic.csv \
   --model_id traffic_512_96 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len 512 \
   --label_len 48 \
@@ -90,7 +90,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --data_path traffic.csv \
   --model_id traffic_512_96 \
   --model $model_name \
-  --data custom \
+  --data Traffic \
   --features M \
   --seq_len 512 \
   --label_len 720 \
