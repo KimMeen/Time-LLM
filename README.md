@@ -114,11 +114,23 @@ Please refer to ```run_main.py```, ```run_m4.py``` and ```run_pretrain.py``` for
 
 
 ## Further Reading
-1, [**Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook**](https://arxiv.org/abs/2310.10196), in *arXiv* 2023.
+1, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
+
+**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
+
+```bibtex
+@inproceedings{jin2024position,
+   title={Position Paper: What Can Large Language Models Tell Us about Time Series Analysis}, 
+   author={Ming Jin and Yifan Zhang and Wei Chen and Kexin Zhang and Yuxuan Liang and Bin Yang and Jindong Wang and Shirui Pan and Qingsong Wen},
+  booktitle={International Conference on Machine Learning (ICML 2024)},
+  year={2024}
+}
+```
+
+2, [**Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook**](https://arxiv.org/abs/2310.10196), in *arXiv* 2023.
 [\[GitHub Repo\]](https://github.com/qingsongedu/Awesome-TimeSeries-SpatioTemporal-LM-LLM)
 
 **Authors**: Ming Jin, Qingsong Wen*, Yuxuan Liang, Chaoli Zhang, Siqiao Xue, Xue Wang, James Zhang, Yi Wang, Haifeng Chen, Xiaoli Li (IEEE Fellow), Shirui Pan*, Vincent S. Tseng (IEEE Fellow), Yu Zheng (IEEE Fellow), Lei Chen (IEEE Fellow), Hui Xiong (IEEE Fellow)
-
 
 ```bibtex
 @article{jin2023lm4ts,
@@ -129,19 +141,7 @@ Please refer to ```run_main.py```, ```run_m4.py``` and ```run_pretrain.py``` for
 }
 ```
 
-2, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *arXiv* 2024.
 
-**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
-
-
-```bibtex
-@article{jin2024position,
-   title={Position Paper: What Can Large Language Models Tell Us about Time Series Analysis}, 
-   author={Ming Jin and Yifan Zhang and Wei Chen and Kexin Zhang and Yuxuan Liang and Bin Yang and Jindong Wang and Shirui Pan and Qingsong Wen},
-  journal={arXiv preprint arXiv:2402.02713},
-  year={2024}
-}
-```
 3, [**Transformers in Time Series: A Survey**](https://arxiv.org/abs/2202.07125), in IJCAI 2023.
 [\[GitHub Repo\]](https://github.com/qingsongedu/time-series-transformers-review)
 
