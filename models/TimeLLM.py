@@ -198,60 +198,69 @@ class Model(nn.Module):
         return None
 
     def forecast(self, x_enc, x_mark_enc, x_dec, x_mark_dec):
-
-        x_enc = self.normalize_layers(x_enc, 'norm')
-
+        # 0. normalize
         B, T, N = x_enc.size()
         x_enc = x_enc.permute(0, 2, 1).contiguous().reshape(B * N, T, 1)
+        x_enc = self.normalize_layers(x_enc, 'norm')
 
+
+
+        # 1. prompt
+        prompt = []
         min_values = torch.min(x_enc, dim=1)[0]
         max_values = torch.max(x_enc, dim=1)[0]
         medians = torch.median(x_enc, dim=1).values
         lags = self.calcute_lags(x_enc)
         trends = x_enc.diff(dim=1).sum(dim=1)
-
-        prompt = []
         for b in range(x_enc.shape[0]):
             min_values_str = str(min_values[b].tolist()[0])
             max_values_str = str(max_values[b].tolist()[0])
             median_values_str = str(medians[b].tolist()[0])
             lags_values_str = str(lags[b].tolist())
             prompt_ = (
-                f"<|start_prompt|>Dataset description: {self.description}"
+                f"<|start_prompt|> "
+                f"Act as an electric power systems deployment strategist. "
+                f"Dataset description: {self.description}"
                 f"Task description: forecast the next {str(self.pred_len)} steps given the previous {str(self.seq_len)} steps information; "
-                "Input statistics: "
+                f"Input statistics: "
                 f"min value {min_values_str}, "
                 f"max value {max_values_str}, "
                 f"median value {median_values_str}, "
                 f"the trend of input is {'upward' if trends[b] > 0 else 'downward'}, "
-                f"top 5 lags are : {lags_values_str}<|<end_prompt>|>"
+                f"top 5 lags are : {lags_values_str}",
+                f"<|<end_prompt>|>"
             )
-
             prompt.append(prompt_)
-
-        x_enc = x_enc.reshape(B, N, T).permute(0, 2, 1).contiguous()
-
         prompt = self.tokenizer(prompt, return_tensors="pt", padding=True, truncation=True, max_length=2048).input_ids
-        prompt_embeddings = self.llm_model.get_input_embeddings()(prompt.to(x_enc.device))  # (batch, prompt_token, dim)
+        prompt_embeddings = self.llm_model.get_input_embeddings()(prompt.to(x_enc.device))
 
+
+
+
+        # 2. reprogramming the time-series data
         source_embeddings = self.mapping_layer(self.word_embeddings.permute(1, 0)).permute(1, 0)
 
+        x_enc = x_enc.reshape(B, N, T).permute(0, 2, 1).contiguous()
         x_enc = x_enc.permute(0, 2, 1).contiguous()
         enc_out, n_vars = self.patch_embedding(x_enc.to(torch.bfloat16))
         enc_out = self.reprogramming_layer(enc_out, source_embeddings, source_embeddings)
+
+
+
+        # 3. concatenate and input to LLAMA
         llama_enc_out = torch.cat([prompt_embeddings, enc_out], dim=1)
         dec_out = self.llm_model(inputs_embeds=llama_enc_out).last_hidden_state
-        dec_out = dec_out[:, :, :self.d_ff]
 
-        dec_out = torch.reshape(
-            dec_out, (-1, n_vars, dec_out.shape[-2], dec_out.shape[-1]))
+
+
+        # 4. output projection
+        dec_out = dec_out[:, :, :self.d_ff]  # part of the output
+        dec_out = torch.reshape(dec_out, (-1, n_vars, dec_out.shape[-2], dec_out.shape[-1]))
         dec_out = dec_out.permute(0, 1, 3, 2).contiguous()
-
         dec_out = self.output_projection(dec_out[:, :, :, -self.patch_nums:])
+
         dec_out = dec_out.permute(0, 2, 1).contiguous()
-
         dec_out = self.normalize_layers(dec_out, 'denorm')
-
         return dec_out
 
     def calcute_lags(self, x_enc):
