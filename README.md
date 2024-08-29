@@ -52,7 +52,7 @@
 
 ## Updates/News:
 
-🚩 **News** (Aug. 2024): Time-LLM has been adopted by XiMou Optimization Technology Co., Ltd. (XMO) for Solar and Wind Forecasting.
+🚩 **News** (Aug. 2024): Time-LLM has been adopted by XiMou Optimization Technology Co., Ltd. (XMO) for Solar, Wind, and Weather Forecasting.
 
 🚩 **News** (May 2024): Time-LLM has been included in [NeuralForecast](https://github.com/Nixtla/neuralforecast). Special thanks to the contributor @[JQGoh](https://github.com/JQGoh) and @[marcopeix](https://github.com/marcopeix)!
 
