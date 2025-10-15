@@ -1,0 +1,1 @@
+EAN is a dataset contains only sold_units of one ean product of loreal cosmetic products.

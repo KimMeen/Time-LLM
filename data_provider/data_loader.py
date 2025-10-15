@@ -10,6 +10,80 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+class Dataset_ean(Dataset):
+    def __init__(self, root_path, flag='train', size=None,
+                 features='S', data_path='data.csv',
+                 target='sold_units', scale=False, timeenc=0, freq='W', percent=100,
+                 seasonal_patterns=None):
+        if size is None:
+            self.seq_len = 13  # Use 0.25 year of data for sequence
+            self.label_len = 4  # Labels from last month
+            self.pred_len = 4   # Predict 1 month ahead
+        else:
+            self.seq_len, self.label_len, self.pred_len = size
+
+        assert flag in ['train', 'test', 'val']
+        self.set_type = {'train': 0, 'val': 1, 'test': 2}[flag]
+
+        self.features = features
+        self.target = target
+        self.scale = scale
+        self.timeenc = timeenc
+        self.freq = freq
+
+        self.root_path = root_path
+        self.data_path = data_path
+        self.__read_data__()
+        self.enc_in = self.data_x.shape[-1]
+    def __read_data__(self):
+        self.scaler = StandardScaler()
+        df_raw = pd.read_csv(os.path.join(self.root_path, self.data_path))
+        df_raw.drop("Unnamed: 0", axis=1, inplace=True)# don't forget to remove this once regulated the data
+        num_weeks = len(df_raw)
+        num_train = int(num_weeks * 0.7)
+        num_val = int(num_weeks * 0.2)
+        num_test = num_weeks - num_train - num_val
+
+        border1s = [0, num_train, num_train + num_val]
+        border2s = [num_train, num_train + num_val, num_weeks]
+
+        border1 = border1s[self.set_type]
+        border2 = border2s[self.set_type]
+
+        if self.scale:
+            train_data = df_raw.iloc[:num_train]
+            self.scaler.fit(train_data[[self.target]].values)
+            data = self.scaler.transform(df_raw[[self.target]].values)
+        else:
+            data = df_raw[[self.target]].values
+
+        df_stamp = pd.to_datetime(df_raw.iloc[:, 0][border1:border2])  # 'end_date' is first column
+        
+        time_features = np.vstack((df_stamp.dt.year, df_stamp.dt.month, df_stamp.dt.day, df_stamp.dt.weekday)).T
+       
+
+        self.data_x = data[border1:border2]
+        self.data_y = data[border1:border2]
+        self.time_features = time_features
+
+    
+
+    def __getitem__(self, index):
+        seq_x = self.data_x[index:index+self.seq_len]
+        seq_y = self.data_y[index+self.seq_len:index+self.seq_len+self.pred_len]
+        seq_x_mark = self.time_features[index:index+self.seq_len]
+        seq_y_mark = self.time_features[index+self.seq_len:index+self.seq_len+self.pred_len]
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
+
+    def __len__(self):
+        return (len(self.data_x) - self.seq_len - self.pred_len + 1) * self.enc_in
+
+    def inverse_transform(self, data):
+        return self.scaler.inverse_transform(data)
+
+
+
+
 class Dataset_ETT_hour(Dataset):
     def __init__(self, root_path, flag='train', size=None,
                  features='S', data_path='ETTh1.csv',
