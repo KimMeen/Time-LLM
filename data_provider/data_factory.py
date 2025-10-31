@@ -9,6 +9,7 @@ data_dict = {
     'ECL': Dataset_Custom,
     'Traffic': Dataset_Custom,
     'Weather': Dataset_Custom,
+    'custom': Dataset_Custom,
     'm4': Dataset_M4,
 }
 
